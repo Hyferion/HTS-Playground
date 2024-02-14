@@ -1,0 +1,53 @@
+{
+	"compiler": {
+		"version": "0.8.16+commit.07a7930e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/library/KeysLib.sol": "KeysLib"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/IHederaTokenService.sol": {
+			"keccak256": "0x3f9793baff3c2bc88dcbda6883732bca82893c761bdd8bf47a99c7b718bc9f56",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://960e2ff3d67b81eca331cd4d7e6a8fd4050c18edbac3c9b533d39ff44cf7754e",
+				"dweb:/ipfs/QmcWB9J4f33LSHz2fGMxpuDwGq9Fx4ZTzKQMqn9XmmTKZu"
+			]
+		},
+		"contracts/library/KeysLib.sol": {
+			"keccak256": "0x715633123b0323c1f3ff1a6a770011e28bf98fa40ad3a9e8170e0ad4d7aaf741",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://24b9e0f146e7223be3d4bfc74404d6769f6bc32ecd8c19fa53f129008f5dd642",
+				"dweb:/ipfs/QmSgKrGfg8UuwvF4cwNT9FgQJSgLc1cR6QsVW2LZUAPxWy"
+			]
+		}
+	},
+	"version": 1
+}

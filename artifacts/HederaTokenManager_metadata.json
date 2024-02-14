@@ -1,0 +1,552 @@
+{
+	"compiler": {
+		"version": "0.8.16+commit.07a7930e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "AdminKeyUpdateError",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "s",
+						"type": "string"
+					}
+				],
+				"name": "MoreThan100Error",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "RefundingError",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "code",
+						"type": "int256"
+					}
+				],
+				"name": "ResponseCodeInvalid",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "SupplyKeyUpdateError",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "admin",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "metadata",
+						"type": "string"
+					}
+				],
+				"name": "MetadataSet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "int64",
+						"name": "amount",
+						"type": "int64"
+					}
+				],
+				"name": "TokenTransfer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "tokenName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "tokenSymbol",
+								"type": "string"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "keyType",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bytes",
+										"name": "publicKey",
+										"type": "bytes"
+									},
+									{
+										"internalType": "bool",
+										"name": "isED25519",
+										"type": "bool"
+									}
+								],
+								"internalType": "struct KeysLib.KeysStruct[]",
+								"name": "keys",
+								"type": "tuple[]"
+							},
+							{
+								"internalType": "int64",
+								"name": "second",
+								"type": "int64"
+							},
+							{
+								"internalType": "int64",
+								"name": "autoRenewPeriod",
+								"type": "int64"
+							},
+							{
+								"internalType": "string",
+								"name": "tokenMetadataURI",
+								"type": "string"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct IHederaTokenManager.UpdateTokenStruct",
+						"name": "updateTokenStruct",
+						"type": "tuple"
+					}
+				],
+				"name": "TokenUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "burner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "int64",
+						"name": "amount",
+						"type": "int64"
+					}
+				],
+				"name": "TokensBurned",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "minter",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "int64",
+						"name": "amount",
+						"type": "int64"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "TokensMinted",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int64",
+						"name": "amount",
+						"type": "int64"
+					}
+				],
+				"name": "burn",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "createToken",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "int64",
+						"name": "amount",
+						"type": "int64"
+					}
+				],
+				"name": "mint",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"errors": {
+				"AdminKeyUpdateError()": [
+					{
+						"details": "Emitted when updating the token admin key"
+					}
+				],
+				"MoreThan100Error(string)": [
+					{
+						"details": "Emitted when the provided `s` is less than 100 characters long",
+						"params": {
+							"s": "The string to check"
+						}
+					}
+				],
+				"RefundingError(uint256)": [
+					{
+						"details": "Emitted when transfering funds back to original sender after creating the token did not work",
+						"params": {
+							"amount": "The value to check"
+						}
+					}
+				],
+				"ResponseCodeInvalid(int256)": [
+					{
+						"details": "Emitted when the provided `code` is not success",
+						"params": {
+							"code": "The code to check"
+						}
+					}
+				],
+				"SupplyKeyUpdateError()": [
+					{
+						"details": "Emitted when updating the token supply key"
+					}
+				]
+			},
+			"kind": "dev",
+			"methods": {
+				"balanceOf(address)": {
+					"details": "Returns the number tokens that an account has",
+					"params": {
+						"account": "The address of the account to be consulted"
+					},
+					"returns": {
+						"_0": "uint256 The number number tokens that an account has"
+					}
+				},
+				"decimals()": {
+					"details": "Returns the number of decimals of the token",
+					"returns": {
+						"_0": "uint8 The number of decimals of the token"
+					}
+				},
+				"name()": {
+					"details": "Returns the name of the token",
+					"returns": {
+						"_0": "string The the name of the token"
+					}
+				},
+				"symbol()": {
+					"details": "Returns the symbol of the token",
+					"returns": {
+						"_0": "string The the symbol of the token"
+					}
+				},
+				"totalSupply()": {
+					"details": "Returns the total number of tokens that exits",
+					"returns": {
+						"_0": "uint256 The total number of tokens that exists"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/HederaTokenManager.sol": "HederaTokenManager"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ExpiryHelper.sol": {
+			"keccak256": "0xec1234c514c202ee7728ae6362b09750c1ac67a77c0ac900d1f373548755963e",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://5c4e4a2451cfe0f4e2816bbd235c33a0e944087ed2c160ee0cdbb5ff940f90b9",
+				"dweb:/ipfs/QmTgdMDT96Y5opyPyn3J1g9iwAyrrikwnjwRxiToxvS3Ws"
+			]
+		},
+		"contracts/HederaResponseCodes.sol": {
+			"keccak256": "0x0361e18efdf43d6b5ac136b6beaa4c943d7fe5e9b8515e5605e3a13b3e3a8177",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://d8bc2fcf2c308293f8ba791184080ab67406e973d2e3f1c70976a77f26a41752",
+				"dweb:/ipfs/QmQrC4wQ1z7GiC79FLa2rbJDqDNCqkHVf3xLq2stFtpema"
+			]
+		},
+		"contracts/HederaTokenManager.sol": {
+			"keccak256": "0x1a82af2686035d9bc08fb1a28659abd6b2d3298f2d35b4ffdd1a0b2511b1d5d5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f518e0ca35ad9218865b99eba7223e2abb573ef3ea18c22f815541e3e62d7532",
+				"dweb:/ipfs/QmeqvfPEhbKeReqrSV8REhTNuSGiQ9g1Zwp3ZtpWt7CB55"
+			]
+		},
+		"contracts/HederaTokenService.sol": {
+			"keccak256": "0x542d6ac427ea1d2fc439e309621a97f40f31e647286821000375646136855111",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://271a0d80e4b345631f482e3a72aaf837391f8657dcab1080441d669dbe2985a4",
+				"dweb:/ipfs/QmdpUQvDNZ3M7okkmSvUXncmQdmiQ7AUioUuHac1TW5kzo"
+			]
+		},
+		"contracts/IERC20.sol": {
+			"keccak256": "0xe0a004cae0f379a86622b921a8e703bf717c066ed73d3b2772d269a1de7de67d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1cf6415e4277e01e30a8a68c31c944fb5143cc0dbafa5997e6ef0c408ea7ea31",
+				"dweb:/ipfs/QmPtNFS7H8rarNoEAt5v4chBoQv4GHGnUrLydsmhFv3eu4"
+			]
+		},
+		"contracts/IERC20Metadata.sol": {
+			"keccak256": "0xd76feaecfa692fb81c9115229605850e2f227a0a4b8034cdc209cc623320d5f5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://885056301848d9c42874dab1b0d18b099d07617f3238dea62c97790b7b9379f0",
+				"dweb:/ipfs/QmbgULKuBzVjwYWdps2icqy7yraXfcg2TGS8jjQhbwW92n"
+			]
+		},
+		"contracts/IHederaTokenManager.sol": {
+			"keccak256": "0x67d23c1dec61fb57329383d8748914272ce57951cccace7fcff0cc390824c684",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8685445adfafca4d2bbfbae1eb2aad198304183a2d0b754331ddd5adcefbf34f",
+				"dweb:/ipfs/Qmd2cRM3n2rGkxjk6trUVEGYtP6i3Xnh2SZLPLEtjCNiz9"
+			]
+		},
+		"contracts/IHederaTokenService.sol": {
+			"keccak256": "0x3f9793baff3c2bc88dcbda6883732bca82893c761bdd8bf47a99c7b718bc9f56",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://960e2ff3d67b81eca331cd4d7e6a8fd4050c18edbac3c9b533d39ff44cf7754e",
+				"dweb:/ipfs/QmcWB9J4f33LSHz2fGMxpuDwGq9Fx4ZTzKQMqn9XmmTKZu"
+			]
+		},
+		"contracts/KeyHelper.sol": {
+			"keccak256": "0x51b92f1e6d1bf018bcc896f53807ba4c5df8ec5189070ff71d1dfd30bcdbbc8c",
+			"license": "Apache-2.0",
+			"urls": [
+				"bzz-raw://5f74b82f037262fd636aa4136771d9224c3f2ab44e9f4e43d3c116a7011c150c",
+				"dweb:/ipfs/Qmd7KB4Sz63W9k7JUtVRTm8ajmrwqFMwXxy3rxCUaUUuvG"
+			]
+		},
+		"contracts/library/KeysLib.sol": {
+			"keccak256": "0x715633123b0323c1f3ff1a6a770011e28bf98fa40ad3a9e8170e0ad4d7aaf741",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://24b9e0f146e7223be3d4bfc74404d6769f6bc32ecd8c19fa53f129008f5dd642",
+				"dweb:/ipfs/QmSgKrGfg8UuwvF4cwNT9FgQJSgLc1cR6QsVW2LZUAPxWy"
+			]
+		},
+		"contracts/library/SafeCast.sol": {
+			"keccak256": "0x52a8cfb0f5239d11b457dcdd1b326992ef672714ca8da71a157255bddd13f3ad",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://495145362c7ff1c9ca88c58bbbbcb412e3c2004406647412394486552ff6c278",
+				"dweb:/ipfs/QmNNCeng6d5eRPDn6tkWSQhjE39XWfQEfjA63rRwHmr1iH"
+			]
+		}
+	},
+	"version": 1
+}
